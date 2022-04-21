@@ -1,0 +1,43 @@
+<style>
+th, td {
+  padding: 10px;
+}
+th {
+  text-align: left;
+}
+</style>
+
+<h1>Listado de lugares y mediciones</h1>
+
+<% if !@places.empty? %>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre persona</th>
+      <th>Grados de luz</th>
+      <th>Latitud</th>
+      <th>Longitud</th>
+      <th>Eliminar</th>
+      <th>Actualizar</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @places.each do |place| %>
+  <tr>
+    <td><%= place.person_name %></td>
+    <td><%= place.ligth %></td>
+    <td><%= place.latitude %></td>
+    <td><%= place.longitude %></td>
+    <td><a href="/place/delete/<%= place.id %>">Eliminar</a></td>
+    <td><a href="/place/update/<%= place.id %>">Actualizar</a></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+<% else %>
+  <p>Lugar no encontrado</p>
+<% end %>
+
+<br/>
+<a href="/place/create">Crear nuevo lugar</a><br>
+<a href="/">Menú principal</a>

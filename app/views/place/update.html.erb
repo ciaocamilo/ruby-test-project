@@ -1,0 +1,39 @@
+<style>
+th, td {
+  padding: 10px;
+}
+th {
+  text-align: right;
+}
+</style>
+
+<h1>Actualizar Lugar</h1>
+
+<%= form_tag(nil, method: "post") do %>
+
+<table>
+  <tbody>
+    <tr>
+      <th><%= label_tag(:person_name, "Nombre persona:") %></th>
+      <td><%= text_field_tag(:person_name, @place.person_name, :required => true) %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag(:ligth, "Grados de luz:") %></th>
+      <td><%= text_field_tag(:ligth, @place.ligth, :required => true) %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag(:latitude, "latitud:") %></th>
+      <td><%= text_field_tag(:latitude, @place.latitude, :required => true) %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag(:longitude, "Longitud:") %></th>
+      <td><%= text_field_tag(:longitude, @place.longitude, :required => true) %></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><%= submit_tag("Actualizar") %></td>
+    </tr>
+  </tbody>
+</table>
+
+<% end %>
